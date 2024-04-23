@@ -1,6 +1,10 @@
 import numpy as np
+import pandas as pd
 import xlsxwriter
 import time
+import os
+
+# pyinstaller --noconfirm --onefile --console --icon C:/repo_git/SCREW/img/maximelt.ico C:/repo_git/SCREW/core.py --distpath C:\repo_git\SCREW --workpath C:\repo_git\build_temp --specpath C:\repo_git\build_temp
 
 # INPUT
 CD = 'C52'      # [-]       Codice vite                                  
@@ -187,9 +191,9 @@ for CD, DV, PA, NP, DA, IA, VR, RC, LZ, DE, PF, CR, FD, NF, DF in zip(CD_list, D
 # print("CV2 = " + str(CV2))
 
 # Create excel file
-caption = CD + time.strftime("_%Y-%m-%d_%H-%M-%S")
+caption = "\\" + CD + time.strftime("_%Y-%m-%d_%H-%M-%S")
 
-workbook = xlsxwriter.Workbook(caption + ".xlsx")
+workbook = xlsxwriter.Workbook(os.getcwd()+caption + ".xlsx")
 
 worksheet1 = workbook.add_worksheet()
 
@@ -311,3 +315,5 @@ worksheet1.add_table(where_output, output_options)
 
 
 workbook.close()
+
+print(pd.read_excel('C52_2024-03-20_15-48-06.xlsx', index_col=3, header=3).keys())
