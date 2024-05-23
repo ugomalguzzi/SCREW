@@ -1,0 +1,1 @@
+pyinstaller --noconfirm --onefile --console --icon C:/repo_git/SCREW/img/maximelt.ico C:/repo_git/SCREW/core2.py --distpath C:\repo_git\SCREW --workpath C:\repo_git\build_temp --specpath C:\repo_git\build_temp
